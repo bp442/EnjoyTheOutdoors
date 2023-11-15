@@ -581,7 +581,7 @@ const nationalParksArray = [
     {
     LocationID: "BICA",
     LocationName: "Bighorn Canyon National Recreation Area",
-    Address: "Bighorn Canyon NRA Headquarters, 5 Avenue B, P.O. Box 7458, Fort Smith, MT 59035",
+    Address: "Bighorn Canyon NRA Headquarters, 5 Avenue B, P.O. Box 7458",
     City: "Fort Smith",
     State: "Montana",
     ZipCode: 59035,

@@ -1,16 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Great Outdoors</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Great Outdoors</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
 
-    <h1>Want to find the right park for you?</h1>
+<body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+  <h1>Want to find the right park for you?</h1>
+
+  <!--Create radio button to choose beteen location or park type-->
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="locationTypeRadio" checked>
+    <label class="form-check-label" for="locationTypeRadio">
+      Search by Location
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="parkTypeRadio">
+    <label class="form-check-label" for="parkTypeRadio">
+      Search by Park Type
+    </label>
+  </div>
+
+  <!--Create dropdown for location (State/Territory)-->
+  <div class="dropdown">
+    <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownBtnName">
+      Select Location
+    </a>
+  
+    <ul class="dropdown-menu" id="parkSelectDropdown">
+    </ul>
+  </div>
+
+  <script src="scripts/locationData.js"></script>
+  <script src="scripts/nationalParkData.js"></script>
+  <script src="scripts/parkTypeData.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="scripts/searchScripts.js"></script>
+</body>
+
 </html>

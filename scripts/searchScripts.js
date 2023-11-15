@@ -3,6 +3,7 @@
 window.onload = init;
 //accordion global variable
 const parksContainer = document.getElementById("parksContainer");
+//array to hold the parks that are valid for the selected category
 let currentParks = [];
 
 function init() {
@@ -15,11 +16,20 @@ function init() {
     optionDropdown.onchange = parkSelected;
 
 }
-
+function parkSelected(){
+    const locationRadio = document.getElementById("locationTypeRadio");
+    const typeRadio = document.getElementById("parkTypeRadio");
+    if(locationRadio.checked){
+        locationSelected();
+    }
+    else if(typeRadio.checked){
+        typeSelected();
+    }
+}
 function radioClick() {
     //Fill out the dropdown with the correct parks given the type
     const locationRadio = document.getElementById("locationTypeRadio");
-    const typeRadio = document.getElementByById("parkTypeRadio");
+    const typeRadio = document.getElementById("parkTypeRadio");
     let optionDropdown = document.getElementById("optionDropdown");
     let optionDiv = document.getElementById("optionDiv");
     let optionLabel = document.getElementById("optionLabel");
@@ -47,13 +57,12 @@ function radioClick() {
     }
     else{//DISPLAY ALL
         resetList();
-
-        
-        
+        allSelected();
     }
 }
 //Display selected parks and their information
-function parkSelected() {
+function locationSelected() {
+    
     //first, reset the accordion and currentParks
     let parkAccordion = document.getElementById("parksContainer");
     parkAccordion.innerHTML = "";
@@ -87,7 +96,7 @@ function typeSelected(){
     const selectedType = optionDropdown.value;
     nationalParksArray.forEach(park =>{
         //if the state of the park matches, add it to the valid parks array
-        if(park.LocationName.includes(optionDropdown.value)){
+        if(park.LocationName.includes(selectedType)){
             currentParks.push(park);
         }
     });
@@ -96,6 +105,19 @@ function typeSelected(){
     for(let y = 0; y < currentParks.length; y++){
         //pass the current park and the accordion number (nonzero numbers only)
         addParkToContainer(currentParks[y], (y + 1))
+    }
+}
+
+function allSelected(){
+    //first, reset the accordion and currentParks
+    let parkAccordion = document.getElementById("parksContainer");
+    parkAccordion.innerHTML = "";
+    currentParks.length = 0;
+
+    //iterate through every park
+    for(let y = 0; y < nationalParksArray.length; y++){
+        //pass the park through to the function
+        addParkToContainer(nationalParksArray[y], (y+1));
     }
 }
 
@@ -147,14 +169,14 @@ function addParkToContainer(park, number) {
 
 }
 
-//need to add an address/zip code check
 function parkInfoDiv(park) {
     let bodyDiv = document.createElement("div");
 
     let locationDiv = document.createElement("div");
     locationDiv.className = "row";
 
-    //add address row to the accordion CHECK IF ALCATRAZ
+    //add address row to the accordion 
+    //CHECK IF ALCATRAZ
     if (park.Address != 0) {
         let address = park.Address + ", " + park.City + ", " + park.State + ", " + park.ZipCode;
         let addressNode = document.createTextNode(address);
@@ -217,11 +239,13 @@ function parkInfoDiv(park) {
         visitHyperlink.appendChild(visitText);
         visitHyperlink.title = "Visit!";
         visitHyperlink.href = visitURL;
+        visitHyperlink.target ="_blank";
         bodyDiv.appendChild(visitHyperlink);
     }
 
     return bodyDiv;
 }
+
 
 function resetList() {
     //reset the global variable so that it can be reused for the customer selection

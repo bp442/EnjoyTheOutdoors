@@ -55,7 +55,7 @@ function replaceData(mountain){
     mountainImage.alt = mountain.desc;
     mountainInfo.innerText = mountain.desc;
     mountainName.innerText = mountain.name;
-    difficultyText.innerText = "Difficulty: " + mountain.effort;
+    difficultyText.innerText = "Climbing Difficulty: " + mountain.effort;
  
 }
 // function that can "fetch" the sunrise/sunset times

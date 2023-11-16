@@ -197,6 +197,27 @@ function parkInfoDiv(park) {
     }
     bodyDiv.appendChild(locationDiv);
 
+
+    //add Visit link if available
+    if (park.hasOwnProperty('Visit')) {
+        let visitURL = park.Visit;
+        let visitHyperlink = document.createElement("a");
+        let visitText = document.createTextNode("Visit Website");
+
+        visitHyperlink.appendChild(visitText);
+        visitHyperlink.title = "Visit Website";
+        visitHyperlink.href = visitURL;
+        visitHyperlink.target = "_blank";
+        bodyDiv.appendChild(visitHyperlink);
+    }
+    else{
+        let visitUnavailable = document.createElement('span');
+        visitUnavailable.style = "font-weight: bold";
+        visitUnavailable.appendChild(document.createTextNode("Website Unavailable"));
+        
+        bodyDiv.appendChild(visitUnavailable);
+    }
+
     //check if phone number / fax exists and add them
     let numbersRowDiv = document.createElement("div");
     numbersRowDiv.className = "row text-center";
@@ -258,25 +279,6 @@ function parkInfoDiv(park) {
         bodyDiv.appendChild(numbersRowDiv);
     }
 
-    //add Visit link if available
-    if (park.hasOwnProperty('Visit')) {
-        let visitURL = park.Visit;
-        let visitHyperlink = document.createElement("a");
-        let visitText = document.createTextNode("Visit");
-
-        visitHyperlink.appendChild(visitText);
-        visitHyperlink.title = "Visit!";
-        visitHyperlink.href = visitURL;
-        visitHyperlink.target = "_blank";
-        bodyDiv.appendChild(visitHyperlink);
-    }
-    else{
-        let visitUnavailable = document.createElement('span');
-        visitUnavailable.style = "font-weight: bold";
-        visitUnavailable.appendChild(document.createTextNode("Website Unavailable"));
-        
-        bodyDiv.appendChild(visitUnavailable);
-    }
 
     return bodyDiv;
 }

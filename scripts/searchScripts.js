@@ -16,16 +16,7 @@ function init() {
     optionDropdown.onchange = parkSelected;
 
 }
-function parkSelected(){
-    const locationRadio = document.getElementById("locationTypeRadio");
-    const typeRadio = document.getElementById("parkTypeRadio");
-    if(locationRadio.checked){
-        locationSelected();
-    }
-    else if(typeRadio.checked){
-        typeSelected();
-    }
-}
+
 function radioClick() {
     //Fill out the dropdown with the correct parks given the type
     const locationRadio = document.getElementById("locationTypeRadio");
@@ -45,7 +36,7 @@ function radioClick() {
             optionDropdown.appendChild(newOption);
         })
     }
-    else if(typeRadio.checked){ //search by park type
+    else if (typeRadio.checked) { //search by park type
         resetList();
         optionDiv.style = "visibility: visible;";
         optionLabel.innerText = "Select Type :";
@@ -55,73 +46,89 @@ function radioClick() {
             optionDropdown.appendChild(newOption);
         })
     }
-    else{//DISPLAY ALL
+    else {//DISPLAY ALL, dropdown stays hidden
         resetList();
         allSelected();
     }
 }
+
+//determine whether or not the location and type radios are selected
+//this will never be able to run if the user displays all because the dropdown is hidden
+function parkSelected() {
+    const locationRadio = document.getElementById("locationTypeRadio");
+    const typeRadio = document.getElementById("parkTypeRadio");
+    if (locationRadio.checked) {
+        locationSelected();
+    }
+    else if (typeRadio.checked) {
+        typeSelected();
+    }
+}
+
 //Display selected parks and their information
 function locationSelected() {
-    
     //first, reset the accordion and currentParks
     let parkAccordion = document.getElementById("parksContainer");
     parkAccordion.innerHTML = "";
     currentParks.length = 0;
 
-    //first, determine how many parks are valid for the selection
+    //determine how many parks are valid for the selection
     const optionDropdown = document.getElementById("optionDropdown");
     const selectedState = optionDropdown.value;
-    nationalParksArray.forEach(park =>{
+    nationalParksArray.forEach(park => {
         //if the state of the park matches, add it to the valid parks array
-        if(park.State == selectedState){
+        if (park.State == selectedState) {
             currentParks.push(park);
         }
     });
 
     //add all currentParks to the accordion in order
-    for(let y = 0; y < currentParks.length; y++){
+    for (let y = 0; y < currentParks.length; y++) {
         //pass the current park and the accordion number (nonzero numbers only)
         addParkToContainer(currentParks[y], (y + 1))
     }
 }
 
-function typeSelected(){
-    //first, reset the accordion and currentParks
+function typeSelected() {
+    //first, reset the accordion and currentParks to start fresh
     let parkAccordion = document.getElementById("parksContainer");
     parkAccordion.innerHTML = "";
     currentParks.length = 0;
 
-    //first, determine how many parks are valid for the selection
+    //determine how many parks are valid for the selection
     const optionDropdown = document.getElementById("optionDropdown");
-    const selectedType = optionDropdown.value;
-    nationalParksArray.forEach(park =>{
-        //if the state of the park matches, add it to the valid parks array
-        if(park.LocationName.includes(selectedType)){
+    const selectedType = optionDropdown.value.toLowerCase();
+    nationalParksArray.forEach(park => {
+        //make sure casing is always consistent for the comparison
+        let parkName = park.LocationName.toLowerCase();
+        //if the type of the park matches, add it to the valid parks array
+        if (parkName.includes(selectedType)) {
             currentParks.push(park);
         }
     });
 
     //add all currentParks to the accordion in order
-    for(let y = 0; y < currentParks.length; y++){
+    for (let y = 0; y < currentParks.length; y++) {
         //pass the current park and the accordion number (nonzero numbers only)
         addParkToContainer(currentParks[y], (y + 1))
     }
 }
 
-function allSelected(){
+//case where the user wants to display all parks
+function allSelected() {
     //first, reset the accordion and currentParks
     let parkAccordion = document.getElementById("parksContainer");
     parkAccordion.innerHTML = "";
     currentParks.length = 0;
 
     //iterate through every park
-    for(let y = 0; y < nationalParksArray.length; y++){
+    for (let y = 0; y < nationalParksArray.length; y++) {
         //pass the park through to the function
-        addParkToContainer(nationalParksArray[y], (y+1));
+        addParkToContainer(nationalParksArray[y], (y + 1));
     }
 }
 
-
+//function to set up each accordion listing
 function addParkToContainer(park, number) {
     let accordionItemDiv = document.createElement("div");
     accordionItemDiv.className = "accordion-item";
@@ -145,7 +152,7 @@ function addParkToContainer(park, number) {
     btn.setAttribute("aria-expanded", "false");
     btn.setAttribute("aria-controls", targetId);
 
-    let btnTextNode = document.createTextNode(park.LocationName + " (" + park.LocationID + ")");
+    let btnTextNode = document.createTextNode(park.LocationName + " (" + park.LocationID.toUpperCase() + ")");
     btn.appendChild(btnTextNode);
 
     accordionHeader.appendChild(btn);
@@ -169,11 +176,12 @@ function addParkToContainer(park, number) {
 
 }
 
+//set up the inside of each accordion body
 function parkInfoDiv(park) {
     let bodyDiv = document.createElement("div");
-
+    bodyDiv.className = "text-center";
     let locationDiv = document.createElement("div");
-    locationDiv.className = "row";
+    locationDiv.className = "row justify-content-around";
 
     //add address row to the accordion 
     //CHECK IF ALCATRAZ
@@ -191,7 +199,7 @@ function parkInfoDiv(park) {
 
     //check if phone number / fax exists and add them
     let numbersRowDiv = document.createElement("div");
-    numbersRowDiv.className = "row";
+    numbersRowDiv.className = "row text-center";
 
     let phoneDiv = document.createElement("div");
     phoneDiv.className = "col";
@@ -215,20 +223,40 @@ function parkInfoDiv(park) {
         bodyDiv.appendChild(numbersRowDiv);
     }
     //the park only has a fax number
-    else if (phoneNumber == 0) {
+    else if (phoneNumber == 0 && faxNumber != 0) {
+        let phoneNumNode = document.createTextNode("Phone Number: N/A");
         let faxNumNode = document.createTextNode("Fax Number: " + faxNumber);
+
+        phoneDiv.appendChild(phoneNumNode);
         faxDiv.appendChild(faxNumNode);
+
+        numbersRowDiv.appendChild(phoneDiv);
         numbersRowDiv.appendChild(faxDiv);
         bodyDiv.appendChild(numbersRowDiv);
     }
     //the park only has a phone number
-    else if (faxNumber == 0) {
+    else if (faxNumber == 0 && phoneNumber != 0) {
         let phoneNumNode = document.createTextNode("Phone Number: " + phoneNumber);
+        let faxNumNode = document.createTextNode("Fax Number: N/A");
+
         phoneDiv.appendChild(phoneNumNode);
+        faxDiv.appendChild(faxNumNode);
+
         numbersRowDiv.appendChild(phoneDiv);
+        numbersRowDiv.appendChild(faxDiv);
         bodyDiv.appendChild(numbersRowDiv);
     }
+    else{
+        let phoneNumNode = document.createTextNode("Phone Number: N/A");
+        let faxNumNode = document.createTextNode("Fax Number: N/A");
 
+        phoneDiv.appendChild(phoneNumNode);
+        faxDiv.appendChild(faxNumNode);
+
+        numbersRowDiv.appendChild(phoneDiv);
+        numbersRowDiv.appendChild(faxDiv);
+        bodyDiv.appendChild(numbersRowDiv);
+    }
 
     //add Visit link if available
     if (park.hasOwnProperty('Visit')) {
@@ -239,8 +267,15 @@ function parkInfoDiv(park) {
         visitHyperlink.appendChild(visitText);
         visitHyperlink.title = "Visit!";
         visitHyperlink.href = visitURL;
-        visitHyperlink.target ="_blank";
+        visitHyperlink.target = "_blank";
         bodyDiv.appendChild(visitHyperlink);
+    }
+    else{
+        let visitUnavailable = document.createElement('span');
+        visitUnavailable.style = "font-weight: bold";
+        visitUnavailable.appendChild(document.createTextNode("Website Unavailable"));
+        
+        bodyDiv.appendChild(visitUnavailable);
     }
 
     return bodyDiv;

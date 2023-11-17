@@ -30,11 +30,14 @@
       </div>
     </div>
   </nav>
-  <div class="container justify-content-around">
-    <div class="container" id="searchBox">
+
+  <main>
+  <div class="container">
+    <div class="container text-center" id="searchBox">
       <h1>Want to find the right park for you?</h1>
 
       <!--Create radio button to choose beteen location or park type-->
+      <div class="container d-flex justify-content-evenly">
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="locationTypeRadio">
         <label class="form-check-label" for="locationTypeRadio">
@@ -53,10 +56,11 @@
           Display All Parks
         </label>
       </div>
+      </div>
 
       <!--Create dropdown for location (State/Territory)
       Keep invisible until radio is selected-->
-      <div class="row" style="visibility:hidden" id="optionDiv">
+      <div class="row py-2" style="visibility:hidden" id="optionDiv">
         <div class="col">
           <label for="optionDropdown" id="optionLabel">Select :</label>
           <select name="optionDropdown" id="optionDropdown">
@@ -67,11 +71,10 @@
 
     <div id="parksContainer" class="accordion accordion-flush">
     </div>
-
-
   </div>
-
-<footer class="navbar-fixed-bottom">
+<div class="push"></div>
+  </main>
+<footer class="text-center">
   <ul>
     <li>&copy; 2023 The Great Outdoors. All rights reserved.</li>
     <li><a href="#">Home</a></li>

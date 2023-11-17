@@ -45,26 +45,28 @@ table {
 
 /*my styling*/
 #navBar{
-    opacity:0.6;
+    opacity:0.8;
 }
 
+h1{
+    font-family:Impact;
+}
 body{
     background-image: url("/images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-
-    display: flex;
-    flex-direction: column;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+}
 
-    margin-bottom: 130px;
-   
+main{
+    margin-bottom: -120px;
+    min-height: 100vh;
 }
 
 #searchBox{
-    background: rgba(255, 255, 255, 0.75)
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(10px) saturate(90%);
 }
 
 #card{
@@ -85,9 +87,25 @@ body{
     font-size:smaller;
 }
 
-
+.push{
+    height:130px;
+}
 footer{
     height: 120px;
     width: 100%;
     background: rgba(255, 255, 255, 0.6);
 }
+.carousel-inner .carousel-item {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    position: absolute;
+  }
+  .carousel-inner .carousel-item:first-of-type {
+    position: relative;
+  }
+  .carousel-inner .active {
+    opacity: 1;
+  }

@@ -33,15 +33,13 @@
 
   <h1 class="text-center">Mountain Information</h1>
 
-  <select id="mountainDropdown" style="margin-left: 40px"></select>
+  <select id="mountainDropdown" class="text-center" style="margin:40px"></select>
 
   <div class="container" style="height: 60vh">
-    <div id="card" class="card text-center d-flex mx-5 my-2 px-2" style= "overflow-y:auto; max-height:max-content">
+    <div id="card" class="card text-center d-flex p-2" style="overflow-y:auto; max-height:max-content">
       <div class="row g-0">
         <div class="col-md-5 col-sm-12 col-xs-12">
-          <img class="img-fluid img-thumbnail" style="height: 100%; width: 100%"
-            id="mountainImage" src=""
-            alt="">
+          <img class="img-fluid rounded border border-primary" style="height: 100%; width: 100%" id="mountainImage" src="" alt="">
         </div>
         <div class="col-md-7 col-sm-12 col-xs-12">
           <div class="card-body">
@@ -51,14 +49,15 @@
               <p class="card-text"><small class="text-body-secondary" id="difficultyText"> </small></p>
             </div>
 
-            <img class="img-fluid img-thumbnail" src="images/sunCycle.jpg" alt="Sunrise and Sunset" style="max-height:10rem;">
+            <img class="img-fluid rounded" src="images/sunCycle.jpg" alt="Sunrise and Sunset"
+              style="max-height:10rem;">
             <div class="row">
-            <div class="col-6">
-              <p class="card-text">Sunrise Time: </p>
-            </div>
-            <div class="col-6">
-              <p class="card-text">Sundown Time: </p>
-            </div>
+              <div class="col-6">
+                <p class="card-text">Sunrise Time: </p>
+              </div>
+              <div class="col-6">
+                <p class="card-text">Sundown Time: </p>
+              </div>
             </div>
             <div class="row">
               <div class="col-6">
@@ -67,13 +66,21 @@
               <div class="col-6">
                 <p class="card-text" id="sunsetTime"></p>
               </div>
-              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <footer class="text-center">
+    <ul>
+      <li>&copy; 2023 The Great Outdoors. All rights reserved.</li>
+      <li><a href="#">Home</a></li>
+      <li><a href="searchPage.html">Search for Parks</a></li>
+      <li><a href="infoPage.html">Mountains</a></li>
+    </ul>
+</footer>
 
   <script src="scripts/mountainData.js"></script>
   <script src="scripts/mountainInfoScripts.js"></script>

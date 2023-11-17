@@ -13,72 +13,83 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navBar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Enjoy the Outdoors!</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="searchPage.html" aria-disabled="true">Search for a Park</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="infoPage.html">Mountain Information</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="index.html">Enjoy the Outdoors!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link disabled" href="searchPage.html" aria-disabled="true">Search for a Park</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="infoPage.html">Mountain Information</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
+  <div class="container justify-content-around">
+    <div class="container" id="searchBox">
+      <h1>Want to find the right park for you?</h1>
 
-<div class="container justify-content-around" >
-  <div class="container" id="searchBox">
-  <h1>Want to find the right park for you?</h1>
+      <!--Create radio button to choose beteen location or park type-->
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="locationTypeRadio">
+        <label class="form-check-label" for="locationTypeRadio">
+          Search by Location
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="parkTypeRadio">
+        <label class="form-check-label" for="parkTypeRadio">
+          Search by Park Type
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="displayAllRadio">
+        <label class="form-check-label" for="displayAllRadio">
+          Display All Parks
+        </label>
+      </div>
 
-  <!--Create radio button to choose beteen location or park type-->
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="locationTypeRadio">
-    <label class="form-check-label" for="locationTypeRadio">
-      Search by Location
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="parkTypeRadio">
-    <label class="form-check-label" for="parkTypeRadio">
-      Search by Park Type
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="displayAllRadio">
-    <label class="form-check-label" for="displayAllRadio">
-      Display All Parks
-    </label>
-  </div>
-
-  <!--Create dropdown for location (State/Territory)
+      <!--Create dropdown for location (State/Territory)
       Keep invisible until radio is selected-->
-  <div class="row" style="visibility:hidden" id="optionDiv">
-    <div class="col">
-      <label for="optionDropdown" id="optionLabel">Select :</label>
-      <select name="optionDropdown" id="optionDropdown">
-      </select>
+      <div class="row" style="visibility:hidden" id="optionDiv">
+        <div class="col">
+          <label for="optionDropdown" id="optionLabel">Select :</label>
+          <select name="optionDropdown" id="optionDropdown">
+          </select>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
 
-  <div id="parksContainer" class="accordion accordion-flush">
-  </div>
+    <div id="parksContainer" class="accordion accordion-flush">
+    </div>
 
 
-</div>
-    <script src="scripts/locationData.js"></script>
-    <script src="scripts/nationalParkData.js"></script>
-    <script src="scripts/parkTypeData.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
-    <script src="scripts/searchScripts.js"></script>
+  </div>
+
+<footer class="navbar-fixed-bottom">
+  <ul>
+    <li>&copy; 2023 The Great Outdoors. All rights reserved.</li>
+    <li><a href="#">Home</a></li>
+    <li><a href="searchPage.html">Search for Parks</a></li>
+    <li><a href="infoPage.html">Mountains</a></li>
+  </ul>
+</footer>
+
+
+
+  <script src="scripts/locationData.js"></script>
+  <script src="scripts/nationalParkData.js"></script>
+  <script src="scripts/parkTypeData.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="scripts/searchScripts.js"></script>
 </body>
+
 
 </html>

@@ -1,73 +1,186 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Great Outdoors</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navBar">
-      <div class="container-fluid">
-          <a class="navbar-brand" href="#">Enjoy the Outdoors!</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                      <a class="nav-link" href="searchPage.html">Search for a Park</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="infoPage.html">Mountain Information</a>
-                  </li>
-              </ul>
-          </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Great Outdoors</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navBar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Enjoy the Outdoors!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="searchPage.html">Search for a Park</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="infoPage.html">Mountain Information</a>
+          </li>
+        </ul>
       </div>
+    </div>
   </nav>
-  
-    <h1>Homepage</h1>
-    <div class="container" style="height: 80vh">
-      <div id="card" class="card text-center d-flex mx-5 my-2 px-2" style= "overflow-y:auto; max-height:max-content">
-        <div class="row g-0">
-          <div class="col-md-5 col-sm-12 col-xs-12">
-            <img class="img-fluid img-thumbnail" style="height: 100%; width: 100%"
-              id="homeImage" src="images/outdoors.jpg"
-              alt="Beautiful image of a landscape">
+
+  <div class="container">
+    <div id="card" class="card text-center d-flex m-5 p-2" style="overflow-y:auto; max-height:max-content">
+      <div class="row g-0">
+        <div class="col-md-7 col-sm-12 col-xs-12">
+          <img class="img-fluid rounded " style="height: 100%; width: 100%" id="homeImage" src="images/outdoors.jpg"
+            alt="Beautiful image of a landscape">
+        </div>
+        <div class="col-md-5 col-sm-12 col-xs-12">
+          <div class="card-body">
+            <h1 class="card-title" id="homepageTopHeader" style="font-weight:bold">Enjoy the Outdoors!</h1>
+            <p class="card-text" id="homepageTopDesc">
+              Take an interest in the natural beauty of the outdoors! We provide easy access to searching for a National
+              Park
+              of your choice, with contact info and a link to their own websites if available. Also look around to
+              explore the details of
+              over 40 different mountains along with a short description of what to expect!
+            </p>
           </div>
-          <div class="col-md-7 col-sm-12 col-xs-12">
-            <div class="card-body">
-              <h3 class="card-title" id="homepageTopHeader">Enjoy the Outdoors!</h3>
-              <p class="card-text" id="homepageTopDesc">
-                Take an interest in the natural beauty of the outdoors! We provide easy access to searching for a National Park
-                of your choice, with contact info and a link to their own websites if available. Also look around to explore the details of 
-                over 40 different mountains along with a short description of what to expect!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="card" class="card text-center mx-5 my-2 p-1">
+  <h2>Example National Parks </h2>
+  </div>
+  <!--Carousel for example parks and images-->
+  <div class="container" style="height: 60%; width:75%">
+    <div id="card" class="card text-center mx-5 my-2 p-1">
+      <div id="carouselParks" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselParks" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselParks" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselParks" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselParks" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselParks" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselParks" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        </div>
+        <div class="carousel-inner carousel-fade">
+          <div class="carousel-item active">
+            <img src="images/carouselGlacier.jpg" class="d-block w-100 rounded" alt="Glacier National Park">
+            <div class="carousel-caption d-none d-lg-block">
+              <h3>Glacier National Park</h3>
+              <p>Located in Montana along the Canadian border, the Glacier National Park is a pristine wilderness known
+                for
+                its breathtaking landscapes, including rugged mountains, active glaciers, and diverse ecosystems. The
+                iconic Going-to-the-Sun Road provides spectacular views of the park's highlights. Rich in wildlife, the
+                park offers opportunities for encounters with bears, mountain goats, and various bird species. With over
+                700 lakes and a network of hiking trails, visitors can immerse themselves in the park's unspoiled
+                natural
+                beauty.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/carouselGrandCanyon.jpg" class="d-block w-100 rounded" alt="Grand Canyon National Park">
+            <div class="carousel-caption d-none d-lg-block">
+              <h3>Grand Canyon National Park</h3>
+              <p>Situated in Arizona, the Grand Canyon is a natural wonder renowned for its immense and
+                colorful canyon carved by the Colorado River. Established in 1919, the park spans 1.2 million acres and
+                is
+                characterized by its mesmerizing rock formations, including the iconic South Rim. Visitors can explore
+                the
+                canyon's depths through various trails or appreciate panoramic views from the rim. The park's geological
+                history, diverse ecosystems, and striking vistas make it a globally recognized destination for nature
+                enthusiasts and hikers alike.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/carouselGrandTeton.jpg" class="d-block w-100 rounded" alt="Grand Teton National Park">
+            <div class="carousel-caption d-none d-lg-block">
+              <h3>Grand Teton National Park</h3>
+              <p>Located in northwestern Wyoming, Grand Teton is celebrated for its majestic Teton Range,
+                pristine alpine lakes, and abundant wildlife. Established in 1929, the park covers over 300,000 acres of
+                diverse landscapes. Visitors are captivated by the iconic jagged peaks of the Teton Range and the
+                serenity
+                of Jackson Hole Valley. The park offers a wealth of outdoor activities, from hiking and mountaineering
+                to
+                wildlife watching, providing an immersive experience in one of America's most stunning natural settings.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/carouselOlympic.jpg" class="d-block w-100 rounded" alt="Olympic National Park">
+            <div class="carousel-caption d-none d-lg-block">
+              <h3>Olympic National Park</h3>
+              <p>Situated in the state of Washington, Olympic National Park is a diverse and enchanting wilderness known
+                for its rich ecosystems. Established in 1938, the park encompasses nearly one million acres, featuring
+                lush temperate rainforests, rugged Pacific coastline, and glaciated mountain peaks. Visitors can explore
+                the Hoh Rainforest, stroll along pristine beaches, and marvel at the towering peaks of the Olympic
+                Mountains. The park's varied landscapes provide a haven for diverse wildlife, making it a haven for
+                nature
+                lovers, hikers, and those seeking a captivating outdoor experience.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/carouselYellowstone.jpg" class="d-block w-100 rounded" alt="Yellowstone National Park">
+            <div class="carousel-caption d-none d-lg-block">
+              <h3>Yellowstone National Park</h3>
+              <p>Established in 1872 as the world's first national park, Yellowstone National Park is a geothermal
+                wonderland and wildlife haven spanning parts of Wyoming, Montana, and Idaho. Covering over 2 million
+                acres, the park boasts geysers, hot springs, and the iconic Old Faithful. Yellowstone's diverse
+                ecosystems
+                support a range of wildlife, including bison, elk, grizzly bears, and wolves. Visitors can explore the
+                Grand Canyon of the Yellowstone, witness the colorful hot pools at the Upper Geyser Basin, and
+                experience
+                the park's unique geothermal features, making it a globally significant destination for natural wonders
+                and biodiversity.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/carouselYosemite.jpg" class="d-block w-100" alt="Yosemite National Park">
+            <div class="carousel-caption d-none d-lg-block">
+              <h3>Yosemite National Park</h3>
+              <p>Located in California's Sierra Nevada, Yosemite National Park is a captivating expanse of granite
+                cliffs, waterfalls, giant sequoias, and diverse ecosystems. Established in 1890, the park covers over
+                700,000 acres, with iconic landmarks such as El Capitan, Half Dome, and Yosemite Falls. Visitors can
+                enjoy
+                world-class rock climbing, scenic hikes to iconic viewpoints, and the serene beauty of ancient sequoia
+                groves in Mariposa Grove. Yosemite's stunning landscapes, including the lush Yosemite Valley, make it a
+                premier destination for outdoor enthusiasts, photographers, and those seeking the tranquility of nature.
               </p>
             </div>
           </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselParks" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselParks" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
-    
-    <div class="container" style="height: 80vh">
-    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active card">
-          <img src="images/carouselGlacier.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-      </div>
-    </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+  </div>
+
+  <footer class="navbar-fixed-bottom">
+    <ul>
+      <li>&copy; 2023 The Great Outdoors. All rights reserved.</li>
+      <li><a href="#">Home</a></li>
+      <li><a href="searchPage.html">Search for Parks</a></li>
+      <li><a href="infoPage.html">Mountains</a></li>
+    </ul>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+
+
 </html>

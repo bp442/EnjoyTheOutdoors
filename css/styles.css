@@ -54,7 +54,12 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+
+    margin-bottom: 130px;
    
 }
 
@@ -63,9 +68,26 @@ body{
 }
 
 #card{
-    background: rgba(255, 255, 255, 0.75)
+    background: rgba(255, 255, 255, 0.60);
+    backdrop-filter: blur(10px) saturate(80%);
 }
 
 .carousel-item{
-    background: rgba(255, 255, 255, 0.75)
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px) saturate(80%);
+}
+
+.carousel-caption{
+    background: rgba(0, 0, 0, 0.4)
+}
+
+.carousel-caption > p{
+    font-size:smaller;
+}
+
+
+footer{
+    height: 120px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
 }

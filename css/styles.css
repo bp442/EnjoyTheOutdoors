@@ -48,6 +48,12 @@ table {
     opacity:0.8;
 }
 
+.halfCards{
+    max-height:50%;
+    overflow-y:auto; 
+    max-height:max-content;
+}
+
 h1{
     font-family:Impact;
 }
@@ -60,7 +66,7 @@ body{
 }
 
 main{
-    margin-bottom: -120px;
+    margin-bottom: -70px;
     min-height: 100vh;
 }
 
@@ -86,15 +92,17 @@ main{
 .carousel-caption > p{
     font-size:smaller;
 }
-
+/*push class is made purely to make the footer display correctly*/
 .push{
-    height:130px;
+    height:70px;
 }
 footer{
-    height: 120px;
+    height: 70px;
     width: 100%;
     background: rgba(255, 255, 255, 0.6);
 }
+
+/*fixing the automatic transition of carousel, without this fix the fade flashes to white instead*/
 .carousel-inner .carousel-item {
     opacity: 0;
     top: 0;

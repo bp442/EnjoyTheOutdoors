@@ -35,6 +35,8 @@ function radioClick() {
             let newOption = new Option(location);
             optionDropdown.appendChild(newOption);
         })
+        //once the dropdown is filled out, fill in the accordion with the first selected value
+        locationSelected();
     }
     else if (typeRadio.checked) { //search by park type
         resetList();
@@ -45,6 +47,8 @@ function radioClick() {
             let newOption = new Option(type);
             optionDropdown.appendChild(newOption);
         })
+         //once the dropdown is filled out, fill in the accordion with the first selected value
+        parkSelected();
     }
     else {//DISPLAY ALL, dropdown stays hidden
         resetList();

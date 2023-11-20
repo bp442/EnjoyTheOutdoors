@@ -94,7 +94,7 @@ main{
 }
 /*push class is made purely to make the footer display correctly*/
 .push{
-    height:70px;
+    height:80px;
 }
 footer{
     height: 70px;
